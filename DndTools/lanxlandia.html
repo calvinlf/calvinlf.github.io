@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lanxlandia</title>
+    <style>
+        body    {font-size: 26px}
+        h1      {}
+        input   {font-size: 26px}
+        button  {font-size: 26px}
+    </style>
+</head>
+<body style="">
+    <form action="" id="infoForm">
+        <h1>Get Celestial Bodies</h1>
+        <input type="text" id="day" class="form-control" placeholder="Enter Day (1-32)">
+        <input type="text" id="month" class="form-control" placeholder="Enter Month (1-12)">
+        <input type="text" id="year" class="form-control" placeholder="Enter Year">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output">
+
+    </div>
+
+    <script>
+        const output = document.getElementById("output")
+        const infoForm = document.getElementById("infoForm")
+
+        const getWeekDate = (day, month, year) => {
+            const epochDate = day + month * 32 + year * 32 * 12
+            return 1 + epochDate % 7
+        }
+
+        const getChallene = (day) => {
+            if (day === 0) {
+                return 'full'
+            }
+            if (day < 8) {
+                return 'waning gibbous'
+            }
+            if (day === 8) {
+                return 'last quarter'
+            }
+            if (day < 15) {
+                return 'waning crescent'
+            }
+            if (day === 16) {
+                return 'new'
+            }
+            if (day < 24) {
+                return 'waxing crescent'
+            }
+            if (day === 24) {
+                return 'first quarter'
+            }
+            return 'waxing gibbous'
+        }
+
+        const whereChallene = (day, month, year) => {
+            const epochDate = day + month * 32 + year * 32 * 12
+            if (epochDate % 14 < 7) {
+                return 'Challene is visible in position ' + (epochDate % 7 + 1) + ' out of 7'
+            }
+            return 'Challene is ' + (7 - epochDate % 7) + ' days from position 1'
+        }
+
+        const getJine = (day) => {
+            const jineDay = (day + month * 32) % 84
+            if (jineDay === 0) {
+                return 'full'
+            }
+            if (jineDay < 21) {
+                return 'waning gibbous'
+            }
+            if (jineDay === 21) {
+                return 'last quarter'
+            }
+            if (jineDay < 42) {
+                return 'waning crescent'
+            }
+            if (jineDay === 42) {
+                return 'new'
+            }
+            if (jineDay < 63) {
+                return 'waxing crescent'
+            }
+            if (jineDay === 63) {
+                return 'first quarter'
+            }
+            return 'waxing gibbous'
+        }
+
+        const whereJine = (day, month, year) => {
+            const epochDate = day + month * 32 + year * 32 * 12
+            if (epochDate % 26 < 13) {
+                return 'Jine is visible in position ' + (epochDate % 26 + 1) + ' out of 13'
+            }
+            return 'Jine is ' + (26 - epochDate % 26) + ' days from position 1'
+        }
+
+        const getGramond = (day) => {
+            const gramondDay = (day + month * 32) % 84
+            if (gramondDay === 0) {
+                return 'full'
+            }
+            if (gramondDay < 2) {
+                return 'waning gibbous'
+            }
+            if (gramondDay === 2) {
+                return 'last quarter'
+            }
+            if (gramondDay < 4) {
+                return 'waning crescent'
+            }
+            if (gramondDay === 4) {
+                return 'new'
+            }
+            if (gramondDay < 6) {
+                return 'waxing crescent'
+            }
+            if (gramondDay === 6) {
+                return 'first quarter'
+            }
+            return 'waxing gibbous'
+        }
+
+        const whereGramond = (day, month, year) => {
+            const epochDate = day + month * 32 + year * 32 * 12
+            const sudoRand = (epochDate * 83 + day * 13) % 20
+            if (sudoRand < 10) {
+                return 'Gramond is visible in position ' + (sudoRand + 1) + ' out of 10'
+            }
+            return 'Gramond is not visible(' + (20 - sudoRand) + ')'
+        }
+
+        const getTide = (day, month, year) => {
+            const epochDate = day + month * 32 + year * 32 * 12
+            const sudoRand1 = (epochDate * 71 + day * 17) % 20 - 5
+            const sudoRand2 = (epochDate * 61 + day * 5) % 20 - 5
+            const sudoRand3= (epochDate * 51 + day * 23) % 20 - 5
+            const sudoRand4 = (epochDate * 41 + day * 57) % 20 - 5
+            return "- midnight: " + sudoRand1 + "ft\n" +
+                "- 6am: " + sudoRand2 + "ft\n" +
+                "- noon: " + sudoRand3 + "ft\n" +
+                "- 6pm: " + sudoRand4 + "ft"
+        }
+
+        infoForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            try {
+                const day = parseInt(document.getElementById("day").value) - 1
+                const month = parseInt(document.getElementById("month").value) - 1
+                const year = parseInt(document.getElementById("year").value) - 1
+                if (day < 0 || month < 0 || day > 31 || month > 11 || !day || !month || !year) {
+                    throw "error: out of range"
+                }
+                let str = "Day of week: " + getWeekDate(day, month, year) + "\n"
+                str += "Tide: \n" + getTide(day, month, year) + "\n"
+                str += "Challene:\n"
+                str += "- Phase of Challene: " + getChallene(day) + "\n- " + whereChallene(day, month, year) + "\n"
+                str += "Jine:\n"
+                str += "- Phase of Jine: " + getJine(day, month) + "\n- " + whereJine(day, month, year) + "\n"
+                str += "Gramond:\n"
+                str += "- Phase of Gramond: " + getGramond(day, month) + "\n- " + whereGramond(day, month, year) + "\n"
+                output.innerText = str
+            } catch (e) {
+                console.log(e)
+                output.innerText = "Invalid input"
+            }
+        });
+    </script>
+</body>
+</html>

@@ -10,8 +10,8 @@
 - Honestly you probably know who I am
 
 ### Tools
-[lanxlandia tools](https://calvinlf.github.io/DndTools/lanxlandia)
-
+[Lanxlandia tools](https://calvinlf.github.io/DndTools/lanxlandia)
+[5e Stat Generation](https://calvinlf.github.io/DndTools/stat_gen)
 
 ### Fun
 [Spock Vs Rock](https://calvinlf.github.io/SvR/play.html)

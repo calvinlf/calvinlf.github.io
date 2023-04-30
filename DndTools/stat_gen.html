@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stat Generation</title>
+    <style>
+        body    {font-size: 26px}
+        h1      {}
+        input   {font-size: 26px}
+        button  {font-size: 26px}
+    </style>
+</head>
+<body>
+    <h1>5e Stat Generation</h1>
+
+    <h2>Roll 4d6 Drop Lowest</h2>
+    <button type="submit" onclick="getRoll4d6DropLowestStats()">Get 4d6 Drop Lowest</button>
+    <div id="roll4d6DropLowestText"></div>
+    <p>4d6 Drop Lowest is pretty good. it's random, you have the potential to get really good scores and really bad scores.
+        Odds are that no one will be incredibly overpowered. As someone who likes to have flaws in their characters, this opens that up pretty well.
+        However, I'm not a big fan of how it can lead to underwhelming or busted characters. </p>
+
+    <h2>Point Buy</h2>
+    <p>Points <span id="pointBuyText">0</span>/27 </p>
+    <input type="number" id="AttributeStr" name="AttributeStr" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <input type="number" id="AttributeDex" name="AttributeDex" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <input type="number" id="AttributeCon" name="AttributeCon" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <input type="number" id="AttributeInt" name="AttributeInt" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <input type="number" id="AttributeWis" name="AttributeWis" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <input type="number" id="AttributeCha" name="AttributeCha" value="8" min="8" max="15" step="1" onchange="getPointBuyTotals()" />
+    <p>Point Buy is the gold standard. It's super simple, raising a point above 8 cost one point except for 14 and 15 which cost 2.
+        It will never be overpowered or over powered. The problem is that you can never get higher than a 15 so nobody wants to take it.
+        Most players would be happy to take 18 in a stat even if the rest of their stats are bad. Also, there's no random element.
+        Because 4d6 Drop Lowest is better on average, if given the choice, players always choose 4d6 Drop Lowet if given the choice.</p>
+
+    <h2>Adjusted Roll 4d6 Drop Lowest</h2>
+    <button type="submit" onclick="getRoll4d6DropLowestAdjustedStats()">Get Adjusted 4d6 Drop Lowest</button>
+    <div id="roll4d6DropLowestAdjustedText"></div>
+    <p>Here is how I would fix 4d6 drop lowest. I start by adding up the scores if the total is less than 70, I increase the lowest until the total is 
+        70. If the total is greater than 80, I decrease the biggest stat until the total is less than 80. This does a few things that I really like.
+        (I also redo everything if the result is impossible to roll)
+        If you roll terribly, then you can get one really good stat. This is good for players that feel cursed by the dice gods.
+        On the other hand, if you roll well, it balances you character nicely. Roll ridiculously well, and your guaranteed a bad stat,
+        which I believe most characters should have.
+        Most of the time, nothing will change. On average, this is still better than Point Buy, but less swingy than the standard
+        4d6 drop lowest. It is my attempt to enjoy the randomness of 4d6 Drop Lowest and the stability of Pointy Buy.
+        I picked 70 and 80 by looking at the totals given by point Buy. There could be better high and low bounds.</p>
+
+    <h2>Adjusted Point Buy</h2>
+    <p>Points <span id="adjustedPointBuyText">0</span>/13</p>
+    <input type="number" id="AttStr" name="AttStr" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <input type="number" id="AttDex" name="AttDex" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <input type="number" id="AttCon" name="AttCon" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <input type="number" id="AttInt" name="AttInt" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <input type="number" id="AttWis" name="AttWis" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <input type="number" id="AttCha" name="AttCha" value="10" min="6" max="18" step="1" onchange="getAdjustedPointBuyTotals()" />
+    <p>This is a work in progress and will probably be too complicated.</p>
+
+
+    <script>
+
+        const d = (x) => {
+            return Math.floor(Math.random() * x) + 1;
+        }
+
+        const roll4d6DropLowest = () => {
+            const arr = [d(6), d(6), d(6), d(6)]
+            let lowest = 6
+            arr.forEach(i => {
+                if (i < lowest){
+                    lowest = i
+                }
+            })
+
+            return arr.reduce((p, c) => p + c, 0) - lowest
+
+        }
+
+        const getRoll4d6DropLowestStats = () => {
+            const arr = [roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest()]
+            arr.sort((a, b) => a - b)
+            let str = arr.reduce((p, c) => p + " " + c, "")
+            const output = document.getElementById("roll4d6DropLowestText")
+            output.innerText = str
+        }
+
+        const getRoll4d6DropLowestAdjustedStats = () => {
+            const highLimit = 80
+            const lowLimit = 70
+            const arr = [roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest(), roll4d6DropLowest()]
+            const arrSum = arr.reduce((p, c) => p + c, 0)
+            if (arrSum > highLimit) {
+                let biggest = 0
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > arr[biggest]) {
+                        biggest = i
+                    }
+                }
+                alert("Biggest(" + arr[biggest] + ") dropped by " + (arrSum - highLimit))
+                arr[biggest] -= arrSum - highLimit
+                if (arr[biggest] < 3) {
+                    getRoll4d6DropLowestAdjustedStats()
+                    return
+                }
+            }
+            if (arrSum < lowLimit) {
+                let lowest = 0
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < arr[lowest]) {
+                        lowest = i
+                    }
+                }
+                alert("Lowest(" + arr[lowest] + ") raised by " + (lowLimit - arrSum))
+                arr[lowest] += lowLimit - arrSum
+                if (arr[lowest] > 20) {
+                    getRoll4d6DropLowestAdjustedStats()
+                    return
+                }
+            }
+            arr.sort((a, b) => a - b)
+            let str = arr.reduce((p, c) => p + " " + c, "")
+            const output = document.getElementById("roll4d6DropLowestAdjustedText")
+            output.innerText = str
+        }
+
+        const getPointBuyTotals = () => {
+            let total = 0
+            const getPoints = (stat) => {
+                stat = parseInt(stat)
+                if (stat <= 13)
+                    return stat - 8
+                return 5 + 2 * (stat - 13)
+            }
+
+            total += getPoints(document.getElementById("AttributeStr").value)
+            total += getPoints(document.getElementById("AttributeDex").value)
+            total += getPoints(document.getElementById("AttributeCon").value)
+            total += getPoints(document.getElementById("AttributeInt").value)
+            total += getPoints(document.getElementById("AttributeWis").value)
+            total += getPoints(document.getElementById("AttributeCha").value)
+
+            const output = document.getElementById("pointBuyText")
+            output.innerHTML = total
+        }
+
+        const getAdjustedPointBuyTotals = () => {
+            const arr = [
+                parseInt(document.getElementById("AttStr").value),
+                parseInt(document.getElementById("AttDex").value),
+                parseInt(document.getElementById("AttCon").value),
+                parseInt(document.getElementById("AttInt").value),
+                parseInt(document.getElementById("AttWis").value),
+                parseInt(document.getElementById("AttCha").value)
+            ]
+            const costArr = new Map()
+            costArr.set(6, -3)
+            costArr.set(7, -2)
+            costArr.set(8, -1)
+            costArr.set(9, -1)
+            costArr.set(10, 0)
+            costArr.set(11, 1)
+            costArr.set(12, 2)
+            costArr.set(13, 3)
+            costArr.set(14, 5)
+            costArr.set(15, 8)
+            costArr.set(16, 15)
+            costArr.set(17, 20)
+            costArr.set(18, 40)
+            const specialCostArr = new Map()
+            specialCostArr.set(6, -6)
+            specialCostArr.set(7, -5)
+            specialCostArr.set(8, -4)
+            specialCostArr.set(9, -2)
+            specialCostArr.set(10, 0)
+            specialCostArr.set(11, 1)
+            specialCostArr.set(12, 2)
+            specialCostArr.set(13, 3)
+            specialCostArr.set(14, 5)
+            specialCostArr.set(15, 7)
+            specialCostArr.set(16, 10)
+            specialCostArr.set(17, 13)
+            specialCostArr.set(18, 17)
+            arr.sort((a, b) => a - b)
+            let total = 0
+            arr.forEach((s, i) => {
+                if (i === 0 || i === 5) {
+                    total += specialCostArr.get(s)
+                } else {
+                    total += costArr.get(s)
+                }
+
+            })
+
+            const output = document.getElementById("adjustedPointBuyText")
+            output.innerHTML = total
+        }
+
+    </script>
+
+</body>
+</html>

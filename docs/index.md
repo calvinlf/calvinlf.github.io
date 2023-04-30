@@ -10,7 +10,9 @@
 - Honestly you probably know who I am
 
 ### Tools
+
 [Lanxlandia tools](https://calvinlf.github.io/DndTools/lanxlandia)
+
 [5e Stat Generation](https://calvinlf.github.io/DndTools/stat_gen)
 
 ### Fun

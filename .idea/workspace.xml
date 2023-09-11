@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a262a1e4-5721-4767-bc75-f0544e58eb4d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DndTools/shiomark.html" beforeDir="false" afterPath="$PROJECT_DIR$/DndTools/shiomark.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DndTools/vallahirstead.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/CALPC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/CALPC.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +36,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DndTools" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,6 +48,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CALPC\Projects\calvinlf.github.io\DndTools" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\CALPC\Projects\calvinlf.github.io\docs" />
     </key>
@@ -78,7 +83,9 @@
       <workItem from="1561518590158" duration="25000" />
       <workItem from="1682805029904" duration="21824000" />
       <workItem from="1691111297576" duration="6094000" />
-      <workItem from="1691118137780" duration="570000" />
+      <workItem from="1691118137780" duration="695000" />
+      <workItem from="1692079995020" duration="3242000" />
+      <workItem from="1694392973508" duration="159000" />
     </task>
     <servers />
   </component>

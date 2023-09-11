@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vallahirstead</title>
+    <style>
+        body    {font-size: 26px}
+        h1      {}
+        input   {font-size: 26px}
+        button  {font-size: 26px}
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 26px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vallahirstead</h1>
+    <p>In the North of the Forsaken Lands, even more North than the Shio, lies vallahirstead, the shattered city.
+        Called both the shattered city and the violet city for the floating amethyst shards that float of above city,
+        this city hosts not one, but three of the greatest centers of magical learning.
+        Vallahirstead was once only an outpost of Krandel, but after that nation was overrun by demons in 506 ANW,
+        it became a city state, powerful in its own right.
+        At the center of the city lies a lake that is held by the bottom half of an enormous amethyst geode,
+        the source of the magical floating rock.
+        Despite the cold, the lake never freezes over.
+        This is not all that strange though, for wizards fly through the sky on flying carpets,
+        and even the lowliest of storekeepers knows a bit of magic.
+    </p>
+    <h2>Mage's Guild</h2>
+    <button type="button" class="collapsible">Sylander Academy</button>
+    <div class="content">
+        <p>The first school built in the sky. Though it has a reputation for producing more dark lords than archmages,
+            this school is a great place for those seeking powerful and forbidden knowledge.</p>
+    </div>
+    <button type="button" class="collapsible">Golden Roc Academy</button>
+    <div class="content">
+        <p>The most prestigious school in all of Vallahirstead, this school is only available to either the very talented or very rich,
+        and those able to graduate here are guaranteed to be both skilled and well connected.</p>
+    </div>
+    <h2>Advanced Arcanist Alliance</h2>
+    <button type="button" class="collapsible">Clawborn Academy</button>
+    <div class="content">
+        <p>This school welcomes those that are seeking an education that is both quality and affordable.</p>
+    </div>
+    <button type="button" class="collapsible">Technist's Trade School</button>
+    <div class="content">
+        <p>A great place to learn how to craft magical items.</p>
+    </div>
+    <button type="button" class="collapsible">DieselMug</button>
+    <div class="content">
+        <p>This school accepts all and graduates few, but for any wanting to learn the secrets of magical engines, this is a good place to start</p>
+    </div>
+    <h2>Umbral Flame</h2>
+    <button type="button" class="collapsible">Brightstar Academy</button>
+    <div class="content">
+        <p>The oldest school in Vallahirstead.</p>
+    </div>
+    <button type="button" class="collapsible">Broken Land University</button>
+    <div class="content">
+        <p>Named for a time when the city was new, this school boast some of the best religious and historical courses.</p>
+    </div>
+    <button type="button" class="collapsible">Hidden Truth Academy</button>
+    <div class="content">
+        <p>With a long tradition of divination magic, this is one of the best schools in the world for those seeking to know the
+        unknowable and find that which is lost.</p>
+    </div>
+    <h2>Other</h2>
+    <button type="button" class="collapsible">Carpet Shop</button>
+    <div class="content">
+        <p>A grizzled dwarf has a few items out, but could probably make something specific in a pinch</p>
+        <table>
+            <tr>
+                <td>Bargain Carpet</td>
+                <td>99gp</td>
+            </tr>
+            <tr>
+                <td>Good Carpet</td>
+                <td>399gp</td>
+            </tr>
+            <tr>
+                <td>True Carpet</td>
+                <td>199pp</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="collapsible">Bixwort's Blessed Bakery</button>
+    <div class="content">
+        <p>The muffins are the best.</p>
+        <table>
+            <tr>
+                <td>Muffin</td>
+                <td>1sp</td>
+            </tr>
+            <tr>
+                <td>Donut</td>
+                <td>2sp</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="collapsible">Bank</button>
+    <div class="content">
+        <p>Rumor has it that a dragon secretly runs the bank.</p>
+    </div>
+    <button type="button" class="collapsible">Market</button>
+    <div class="content">
+        <p>You never know what you'll find here.</p>
+    </div>
+</body>
+
+<script>
+    let col = document.getElementsByClassName("collapsible")
+    let i
+
+    for (i = 0; i < col.length; i++) {
+        col[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px"
+            }
+        });
+    }
+</script>

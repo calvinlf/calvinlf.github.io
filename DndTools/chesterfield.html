@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chesterfield</title>
+    <style>
+        body    {font-size: 26px}
+        h1      {}
+        input   {font-size: 26px}
+        button  {font-size: 26px}
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 26px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chesterfield</h1>
+    <p>A small sleepy town in the middle of Fadstra. Several years ago a curse over the town was lifted by a group of
+        adventurers. Since then, the town has grown considerably, but is still quite small.
+    </p>
+    <button type="button" class="collapsible">General Store</button>
+    <div class="content">
+        <p>You can buy simple things that you need here.</p>
+    </div>
+    <button type="button" class="collapsible">Broken Spear Inn</button>
+    <div class="content">
+        <p>It costs 1 silver a night.</p>
+    </div>
+    <button type="button" class="collapsible">Local Jail</button>
+    <div class="content">
+        <p>Run by a young man.</p>
+    </div>
+    <button type="button" class="collapsible">Carpentry Shop</button>
+    <div class="content">
+        <p>Run by an earth genasi.</p>
+    </div>
+    <button type="button" class="collapsible">Church</button>
+    <div class="content">
+        <p>Shines for most Gods with an emphasis on Hephaestus.</p>
+    </div>
+
+
+
+<script>
+    let col = document.getElementsByClassName("collapsible")
+    let i
+
+    for (i = 0; i < col.length; i++) {
+        col[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px"
+            }
+        });
+    }
+</script>

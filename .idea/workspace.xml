@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a262a1e4-5721-4767-bc75-f0544e58eb4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DndTools/chesterfield.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DndTools/vallahirstead.html" beforeDir="false" afterPath="$PROJECT_DIR$/DndTools/vallahirstead.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +47,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\CALPC\Projects\calvinlf.github.io\DndTools" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\CALPC\Projects\calvinlf.github.io\docs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CALPC\Projects\calvinlf.github.io\DndTools" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,7 +86,8 @@
       <workItem from="1692079995020" duration="3242000" />
       <workItem from="1694392973508" duration="188000" />
       <workItem from="1694998065189" duration="1053000" />
-      <workItem from="1695938127105" duration="1249000" />
+      <workItem from="1695938127105" duration="2054000" />
+      <workItem from="1697913324130" duration="1319000" />
     </task>
     <servers />
   </component>

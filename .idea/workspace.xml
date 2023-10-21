@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a262a1e4-5721-4767-bc75-f0544e58eb4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DndTools/chesterfield.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DndTools/chesterfield.html" beforeDir="false" afterPath="$PROJECT_DIR$/DndTools/chesterfield.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +86,7 @@
       <workItem from="1694392973508" duration="188000" />
       <workItem from="1694998065189" duration="1053000" />
       <workItem from="1695938127105" duration="2054000" />
-      <workItem from="1697913324130" duration="1319000" />
+      <workItem from="1697913324130" duration="1830000" />
     </task>
     <servers />
   </component>

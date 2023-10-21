@@ -14,6 +14,8 @@
 [Lanxlandia tools](https://calvinlf.github.io/DndTools/lanxlandia)
 
  - [Shiomark](https://calvinlf.github.io/DndTools/shiomark)
+ - [vallahirstead](https://calvinlf.github.io/DndTools/vallahirstead)
+ - [chesterfield](https://calvinlf.github.io/DndTools/chesterfield)
 
 [5e Stat Generation](https://calvinlf.github.io/DndTools/stat_gen)
 

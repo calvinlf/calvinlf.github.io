@@ -17,6 +17,10 @@
  - [Vallahirstead](https://calvinlf.github.io/DndTools/vallahirstead)
  - [Chesterfield](https://calvinlf.github.io/DndTools/chesterfield)
  - [Maripa](https://calvinlf.github.io/DndTools/maripa)
+ - [Tormel](https://calvinlf.github.io/DndTools/tormel)
+ - Maps
+   - [World Map](https://calvinlf.github.io/DndTools/ForgottenKingdom)
+   - [Forgotten Kingdom](https://calvinlf.github.io/DndTools/ForgottenKingdom)
 
 [5e Stat Generation](https://calvinlf.github.io/DndTools/stat_gen)
 

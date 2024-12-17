@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgotten City</title>
+    <style>
+        body    {font-size: 26px}
+        h1      {}
+        input   {font-size: 26px}
+        button  {font-size: 26px}
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 26px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Forgotten City</h1>
+            <p>Long ago the river was split to surround the city, possibly to protect it. 
+                Over time the city spread far beyond the island. After the Biomancers war it shrunk down only ruins are found outside the island. 
+                Still, it is a bustling city full of people and opportunity.
+            </p>
+        </div>
+    </div>   
+    <h2>East District</h2>
+    <button type="button" class="collapsible">The Black Library</button>
+    <div class="content">
+        <p>Unused Barracks from the war were repurposed into the largest public library in Lanxland. The stone is blackend from the fires of wars long ago, and is lit by  multicolored mage lights. </p>
+    </div>
+    <button type="button" class="collapsible">The Grand Bazaar</button>
+    <div class="content">
+        <p>Anything can be found here, for a price.</p>
+    </div>
+
+    <h2>Riverside District</h2>
+    <button type="button" class="collapsible">Armenius's Potion Store</button>
+    <div class="content">
+        <table>
+            <tr>
+                <td>Healing Potion</td>
+                <td>50gp</td>
+            </tr>
+            <tr>
+                <td>Greater Healing Potion</td>
+                <td>100gp</td>
+            </tr>
+            <tr>
+                <td>Superior Healing Potion</td>
+                <td>500gp</td>
+            </tr>
+            <tr>
+                <td>Lesser Antidote</td>
+                <td>25gp</td>
+            </tr>
+            <tr>
+                <td>Potion of Stone Giant Strength</td>
+                <td>500gp</td>
+            </tr>
+            <tr>
+                <td>Potion of Invulnerability </td>
+                <td>600gp</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="collapsible">Goose Chaser</button>
+    <div class="content">
+        <p>Nobody mans the shop, but it seems to always have what you need.</p>
+        <table>
+            <tr>
+                <td>Spell Scrolls</td>
+            </tr>
+            <tr>
+                <td>Quality Ink and Paper</td>
+            </tr>
+            <tr>
+                <td>Healing Potion</td>
+                <td>50gp</td>
+            </tr>
+            <tr>
+                <td>Greater Healing Potion</td>
+                <td>100gp</td>
+            </tr>
+            <tr>
+                <td>Superior Healing Potion</td>
+                <td>500gp</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" class="collapsible">Volusian's Water Trips</button>
+    <div class="content">
+        <p>For transport up and down the Forgotten River</p>
+    </div>
+    <button type="button" class="collapsible">General Goods</button>
+    <div class="content">
+        <p>Well stocked for whatever you need.</p>
+    </div>
+    <button type="button" class="collapsible">Bank</button>
+    <div class="content">
+        <p>You can store money here if you want. You can get a loan if you're well connected.</p>
+    </div>
+
+    <h2>Harbor District</h2>
+    <button type="button" class="collapsible">Tormish Basilica</button>
+    <div class="content">
+        <p>The massive basilica is adorned with gold, with a statue of a gold dragon on top. The columns are massive gaunlet covered arms.</p>
+    </div>
+    <button type="button" class="collapsible">Constantine's Choice Cheeses</button>
+    <div class="content">
+        <p>The finest cheeses in Kal-Kev, with possibly the best security for any cheese shop in the world. Rumor is that they were recently robbed.</p>
+    </div>
+    <button type="button" class="collapsible">Market</button>
+    <div class="content">
+        <p>Smaller scale than the Great Bazaar, but still respectable.</p>
+    </div>
+    <button type="button" class="collapsible">The Harbor</button>
+    <div class="content">
+        <p>The place to get your ship fixed or refurbished.</p>
+    </div>
+
+    <h2>North District</h2>
+    <p>Mostly visited by farmers and locals.</p>
+</body>
+
+<script>
+    let col = document.getElementsByClassName("collapsible")
+    let i
+
+    for (i = 0; i < col.length; i++) {
+        col[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px"
+            }
+        });
+    }
+</script>
